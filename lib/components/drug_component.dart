@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:reawatch/models/drug.dart';
+
+import '../models/drug.dart';
 
 class DrugComponent extends StatelessWidget {
   const DrugComponent({super.key, required this.drug});
@@ -13,7 +14,7 @@ class DrugComponent extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(20)),
         color: drug.color,
       ),
-      height: 100,
+      height: 80,
       child: Center(
         child: Text(drug.name, style: Theme.of(context).textTheme.titleMedium,),
       ),

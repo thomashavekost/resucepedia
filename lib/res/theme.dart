@@ -17,23 +17,17 @@ class AppTheme {
   static const Color _darkSecondaryColor = Colors.white;
   static const Color _darkOnPrimaryColor = Colors.white;
 
-  static final ThemeData reaWatchTheme = ThemeData(
-      appBarTheme: const AppBarTheme(
-        titleTextStyle: TextStyle(color:_darkSecondaryColor, fontWeight: FontWeight.bold, fontSize: 26 ),
-        color: _lightInfo,
-        iconTheme: IconThemeData(color: _darkOnPrimaryColor),
-      ),
-      iconTheme: IconThemeData(
-        color: _iconColor,
-      ),
-      dividerTheme: DividerThemeData(
-          color: Colors.black12
-      ),
-    textTheme: TextTheme(
-      bodyMedium: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),
-      titleMedium: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w600),
-    )
-
+  static final ThemeData rescuepediaTheme = ThemeData(
+      colorScheme: ColorScheme.fromSeed(seedColor: _lightWarning),
+      useMaterial3: true,
+      fontFamily: 'Raleway',
+      textTheme: const TextTheme(
+        titleMedium: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w600),
+        titleSmall: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.w500),
+        bodySmall: TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.w300),
+        bodyMedium: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.w300),
+        bodyLarge: TextStyle(color: Colors.black, fontSize: 22, fontWeight: FontWeight.w300),
+      )
   );
 
 }
