@@ -10,11 +10,12 @@ class MedicationProvider extends ChangeNotifier{
   bool get isLoading => _isLoading;
   List<Medication> get medications => _medications;
 
-  void init(){
+  init(){
     getMedications();
   }
 
   void getMedications() async {
+
     _medications = await DrugService().fetchMedications();
     _isLoading = false;
     notifyListeners();

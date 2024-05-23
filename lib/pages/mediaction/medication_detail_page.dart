@@ -1,5 +1,6 @@
 import 'package:RescuePedia/models/medication.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 class MedicationDetailPage extends StatelessWidget {
   const MedicationDetailPage({super.key, required this.medication});
@@ -23,10 +24,10 @@ class MedicationDetailPage extends StatelessWidget {
               Text(medication.drug_name),
               SizedBox(height: 20,),
               Text('Indikation', style: Theme.of(context).textTheme.titleMedium,),
-              Text(medication.indication),
+              Html(data: medication.indication),
               SizedBox(height: 20,),
               Text('Kontraindikation', style: Theme.of(context).textTheme.titleMedium,),
-              Text(medication.contra_indication),
+              Html(data: medication.contra_indication),
               SizedBox(height: 20,),
               Text('Dosierung Erwachsene', style: Theme.of(context).textTheme.titleMedium,),
               Text(medication.dose_adult),

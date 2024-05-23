@@ -29,24 +29,30 @@ class _MedicationsPageState extends State<MedicationsPage> {
             if(provider.isLoading) {
               return CircularProgressIndicator();
             } else {
-              return ListView.separated(
-                  itemCount: provider.medications.length,
-                itemBuilder: (BuildContext context, int index) {
-                    return ListTile(
-                      title: Text(provider.medications[index].name),
-                      subtitle: Text(provider.medications[index].drug_name),
-                      trailing: IconButton(
-                        icon: Icon(Icons.arrow_forward),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => MedicationDetailPage(medication: provider.medications[index],)),
-                          );
-                        },
-                      ),
-                    );
-                },
-                separatorBuilder: (BuildContext context, int index) { return Divider(); },
+              return RefreshIndicator(
+                  child: ListView.separated(
+                    itemCount: provider.medications.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return ListTile(
+                        title: Text(provider.medications[index].name, style: Theme.of(context).textTheme.titleMedium,),
+                        subtitle: Text(provider.medications[index].drug_name),
+                        trailing: IconButton(
+                          icon: Icon(Icons.arrow_forward),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => MedicationDetailPage(medication: provider.medications[index],)),
+                            );
+                          },
+                        ),
+                      );
+                    },
+                    separatorBuilder: (BuildContext context, int index) { return Divider(); },
+                  ),
+                  onRefresh: () async {
+                    await Future.delayed(Duration(microseconds: 1000));
+                    Provider.of<MedicationProvider>(context, listen: false).init();
+                  }
               );
             }
           },
