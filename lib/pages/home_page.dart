@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:RescuePedia/pages/medications_page.dart';
+import 'package:RescuePedia/pages/mediaction/medications_page.dart';
 import 'package:RescuePedia/pages/settings_page.dart';
 import 'package:RescuePedia/pages/sop_start_page.dart';
 import 'package:audioplayers/audioplayers.dart';

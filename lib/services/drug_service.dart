@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:RescuePedia/models/medication.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../models/drug.dart';
@@ -26,8 +27,12 @@ class DrugService{
     });
 
     if (response.statusCode == 200) {
-      Map<String, dynamic> jsonResponse = jsonDecode(response.body);
-      return jsonResponse['data'];
+      final jsonResponse = jsonDecode(response.body);
+      List<Medication> result = [];
+      jsonResponse.forEach((val) {
+        result.add(Medication.fromJson(val));
+      });
+      return result;
     } else {
       return false;
     }
